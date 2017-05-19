@@ -99,12 +99,10 @@ public class Server {
                             tempNameDev =messages.get(j).getDeviceModel();
                             Element barcode = doc.createElement("Barcode");
 
-
-                            if( Parse.checkForWord(messages.get(j).getBarcode(),"null")
-                                    || Parse.checkForWord(messages.get(j).getBarcode(),"")){
+                            if(messages.get(j).getBarcode() == null || messages.get(j).getBarcode().equals(""))
+                            {
                                 chk=1;
-                            }
-
+                            }else chk=0;
                             barcode.setTextContent(messages.get(j).getBarcode());
                             root.appendChild(barcode);
 
@@ -154,8 +152,10 @@ public class Server {
                         }
                         out.println("\u000BMSH|^~\\&|LIS-Server|AMOKB|Mindray|"+messages.get(0).getDeviceModel()+"|20170227143601||ACK^R01|1|P|2.3.1|MSA|AA|1||||0|");
                         out.println("\u001C");
+
+
                     }
-                    System.out.println(addr.getHostName()+": " + str);
+                    System.out.println(addr.getHostName()+": " + "\""+str+"\"");
                 }
 
             } catch (Exception e) { e.printStackTrace();}

@@ -80,7 +80,7 @@ public class Parse {
     {
         List<List<String>> lists = parse(str);
         int profile=whatIsProfile(lists);
-        System.out.println(profile);
+       // System.out.println(profile);
         Message message = new Message();
         List<ResultOfAnalyze> resultOfAnalyzes = new ArrayList<>();
         List<Message>messages = new ArrayList<>();
@@ -112,7 +112,18 @@ public class Parse {
                                 resultOfAnalyze.setTestName(Replace[k]);
                             }
                         }
-                        resultOfAnalyze.setTestResult(lists.get(i).get(j + 5));
+
+                        System.out.println((lists.get(i).get(j + 5)));
+
+                        if((lists.get(i).get(j + 5)).equals("**.*")||(lists.get(i).get(j + 5)).equals("***.**")
+                                ||(lists.get(i).get(j + 5)).equals("T") ){
+
+                            //System.out.println("!==="+(lists.get(i).get(j + 5)));
+                            resultOfAnalyze.setTestResult("");
+                        }else {
+                            resultOfAnalyze.setTestResult(lists.get(i).get(j + 5));
+                        }
+                       //
                     }
 
                     if(profile==400 || profile==300) {

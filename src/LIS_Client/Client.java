@@ -24,8 +24,10 @@ public class Client {
     //const
     public Client() {
         Scanner scan = new Scanner(System.in);
-      //String ip ="192.168.7.19"; //scan.nextLine();
-       String ip ="127.0.0.1"; //scan.nextLine();
+      //String ip ="192.168.7.19";
+       // String ip ="192.168.3.239";
+       // String port ="8888";
+       String ip ="127.0.0.1";
         try {
             socket = new Socket(ip, 9876);
             in =  new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
